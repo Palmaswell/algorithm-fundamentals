@@ -1,0 +1,16 @@
+{
+  "name": "train-for-the-brain",
+  "version": "1.0.0",
+  "description": "Javascript Training",
+  "main": "index.ts",
+  "author": "<mauricio.palma@woodlikeocean.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "typescript": "^3.4.5"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.11",
+    "ts-jest": "^24.0.2"
+  }
+}
