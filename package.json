@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Javascript Training",
   "main": "index.ts",
+  "scripts": {
+    "test": "jest"
+  },
   "author": "<mauricio.palma@woodlikeocean.com>",
   "license": "MIT",
   "private": false,
