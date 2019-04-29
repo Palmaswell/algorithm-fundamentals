@@ -9,13 +9,7 @@ export const isPrime = (n: number): boolean => {
   if (n < 2 || n > 2 ** 16) {
     return false;
   }
-  const counter = (count: number): boolean => {
-    if (count < n) {
-      return n % count === 0
-        ? false
-        : counter(count += 1);
-    }
-    return true;
+  for (let counter = 2; counter < n; counter +=1 ) {
+    return n % counter === 0 ? false : true;
   }
-  return counter(2);
 };
