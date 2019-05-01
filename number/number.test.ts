@@ -7,4 +7,10 @@ test('Check if an array has an Arithmetic or Geometric sequence', () => {
   expect(Number.isArithOrGeo([2, 6, 18, 54])).toBe('Geometric');
   expect(Number.isArithOrGeo([2, 5, 7, 10])).toBe(-1);
   expect(Number.isArithOrGeo([100, 200, 400, 800,1600])).toBe('Geometric');
-})
+});
+
+test('Check if the sum of some array elemets equal the largest number', () => {
+  expect(Number.maxElSum([3,5,-1,8,12])).toBe(true);
+  expect(Number.maxElSum([5,7,16,1,2])).toBe(false);
+  expect(Number.maxElSum([4, 6, 23, 10, 1, 3])).toBe(true);
+});

@@ -1,5 +1,5 @@
 /**
- * @name
+ * @name isArithOrGeo
  * @description Have the function isArithOrGeo(arr) take the
  * array of numbers stored in arr and return the string
  * "Arithmetic" if the sequence follows an arithmetic pattern
@@ -47,3 +47,34 @@ export enum NumSequence {
   }
   return NumSequence.none;
  }
+
+
+/**
+ * @name maxElSum
+ * @description Have the function maxElSum(arr)
+ * take the array of numbers stored in arr and return true
+ * if any combination of numbers in the array (excluding the
+ * largest number) can be added up to equal the largest number
+ * in the array, otherwise return false.
+ *
+ * For example: if arr contains [4, 6, 23, 10, 1, 3] the output
+ * should return true because 4 + 6 + 10 + 3 = 23.
+ * The array will not be empty, will not contain all the same
+ * elements, and may contain negative numbers.
+ */
+
+export const maxElSum = (arr: number[]): boolean => {
+  const max = Math.max(...arr);
+  const arr2 = [...arr];
+  arr2.splice(arr2.indexOf(max), 1);
+  arr2.sort((n1: number, n2: number): number => n1 - n2);
+  const sum = arr2.reduce((acc: number, curr: number): number => acc + curr);
+  if (max === sum) {
+    return true;
+  }
+  const diff = arr2.find((n: number) => sum - n === max);
+  if (sum - diff === max) {
+    return true;
+  }
+  return false;
+}
