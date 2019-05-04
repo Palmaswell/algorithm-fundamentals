@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
     "baseUrl": "./",
-    "target": "esnext",
-    "module": "esnext",
-    "jsx": "preserve",
-    "allowJs": true,
+    "noImplicitAny": true,
+    "outDir": "./dist",
+    "module": "commonjs",
+    "target": "es5",
     "downlevelIteration": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
@@ -17,8 +17,5 @@
       "es2017",
       "dom"
     ],
-    "paths": {
-      "string/*": ["string/*"]
-    }
   }
 }

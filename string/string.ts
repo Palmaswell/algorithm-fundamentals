@@ -21,4 +21,38 @@ export const inScramble = (str1: string, str2: string): boolean => {
   return true;
 }
 
+/**
+ * @name letterCount
+ * @descrition Have the function letterCount(str) take the str parameter being
+ * passed and return the first word with the greatest number of repeated letters.
+ * For example: "Today, is the greatest day ever!" should return greatest because it
+ * has 2 e's (and 2 t's) and it comes before ever which also has 2 e's. If there are
+ * no words with repeating letters return -1. Words will be separated by spaces
+ */
+export type LetterCountType = string | -1;
+export interface ResultProps {
+  index: number;
+  score: number;
+}
 
+ export const letterCount = (str: string): LetterCountType => {
+   const sentence = str.split(' ');
+   const result = sentence.map((word: string): number => (
+     word.split('')
+      .map((char: string): number => {
+        const test = new RegExp(char, 'gi');
+        const score = word.match(test).length;
+        if (score === 1) {
+          return 0;
+        }
+        return score;
+      }).reduce((acc, curr) => acc + curr)
+   ))
+   .map((score: number, index: number) => ({score, index}))
+   .sort((el1, el2) => el2.score - el1.score);
+
+   if (result[0].score === 0) {
+     return -1;
+   }
+   return sentence[result[0].index];
+ }
