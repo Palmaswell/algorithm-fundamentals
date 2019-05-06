@@ -16,3 +16,11 @@ test('Find the word with the most characters repetitions', () => {
   expect(String.letterCount('No words')).toBe(-1);
   expect(String.letterCount('None yellow')).toBe('None');
 });
+
+test('Caesar cipher shift the words of a string according to the given number parameter', () => {
+  expect(String.ceasarsCipher('world!', 1)).toBe('xpsme!');
+  expect(String.ceasarsCipher('coderBYTE', 2)).toBe('eqfgtDAVG');
+  expect(String.ceasarsCipher('what', 2)).toBe('yjcv');
+  expect(String.ceasarsCipher('dogs', 8)).toBe('lwoa');
+  expect(String.ceasarsCipher('byte', 13)).toBe('olgr');
+});

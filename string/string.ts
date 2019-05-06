@@ -56,3 +56,26 @@ export interface ResultProps {
    }
    return sentence[result[0].index];
  }
+
+ /**
+  * @name ceasarsCipher
+  * @description
+  */
+
+export const ceasarsCipher = (str: string, n: number): string => {
+  const lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+  const upperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+  return str.split('')
+    .map((char: string) => {
+      if (!/[A-Za-z]/g.test(char)) {
+        return char;
+      }
+      let shiftPosition = lowerCase.indexOf(char.toLowerCase()) + n;
+      if (shiftPosition > lowerCase.length - 1) {
+        shiftPosition -= lowerCase.length;
+      }
+      return /[A-Z]/g.test(char)
+       ? upperCase[shiftPosition]
+       : lowerCase[shiftPosition];
+    }).join('');
+}
