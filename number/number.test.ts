@@ -14,3 +14,13 @@ test('Check if the sum of some array elemets equal the largest number', () => {
   expect(Number.maxElSum([5,7,16,1,2])).toBe(false);
   expect(Number.maxElSum([4, 6, 23, 10, 1, 3])).toBe(true);
 });
+
+
+test('Return the most frequent number occurrance', () => {
+  expect(Number.mostFrequent([100,200,100,45,3])).toBe(100);
+  expect(Number.mostFrequent([4,5,1,6,7,8,100,200,1000,5])).toBe(5);
+  expect(Number.mostFrequent([4,4,5,6,7,8,8,8,8,8])).toBe(8);
+  expect(Number.mostFrequent([4,5,6,1,2,4])).toBe(4);
+  expect(Number.mostFrequent([5,5,2,2,1])).toBe(5);
+  expect(Number.mostFrequent([3,4,1,6,10])).toBe(-1);
+});

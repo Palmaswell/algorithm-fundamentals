@@ -78,3 +78,43 @@ export const maxElSum = (arr: number[]): boolean => {
   }
   return false;
 }
+
+
+/**
+ * @name mostFrequent
+ * @description Have the function mostFrequent(arr) take the array of numbers stored in arr and return the number that appears most frequently (the mode). For example: if arr contains [10, 4, 5, 2, 4] the output should be 4. If there is more than one mode return the one that appeared in the array first (ie. [5, 10, 10, 6, 5] should return 5 because it appeared first). If there is no mode return -1. The array will not be empty.
+ */
+
+ export interface FrequentNum {
+   readonly value: number;
+   readonly index: number;
+  count: number;
+ }
+
+ export const mostFrequent = (arr: number[]) => {
+  const result: FrequentNum[] = [];
+  for(let i = 0; i < arr.length; i++) {
+    for(let j = 0; j < arr.length; j++) {
+      if (i !== i + j) {
+        if (arr[i] === arr[i + j]) {
+          const currStoredVal = result.find((el: FrequentNum) => el.value === arr[i]);
+          if (currStoredVal) {
+            currStoredVal.count += 1
+          } else {
+            result.push({
+              value: arr[i],
+              index: i,
+              count: 1
+            })
+          }
+        }
+      }
+    }
+  }
+
+  if (result.length === 0) {
+      return -1;
+  }
+  result.sort((el1, el2) => el2.count - el1.count);
+  return result[0].value;
+ }
