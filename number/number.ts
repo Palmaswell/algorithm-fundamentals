@@ -15,20 +15,22 @@
  */
 
 export enum NumSequence {
-  arithmetic = 'Arithmetic',
-  geometric = 'Geometric',
+  arithmetic = "Arithmetic",
+  geometric = "Geometric",
   none = -1
 }
 
- export const isArithOrGeo = (arr: number[]): NumSequence => {
+export const isArithOrGeo = (arr: number[]): NumSequence => {
   if (arr.length >= 2) {
     const arithDiff = arr[1] - arr[0];
-    const isArith = arr.every((n: number, i: number): boolean => {
-      if (i + 1 < arr.length) {
-        return n + arithDiff === arr[i + 1];
+    const isArith = arr.every(
+      (n: number, i: number): boolean => {
+        if (i + 1 < arr.length) {
+          return n + arithDiff === arr[i + 1];
+        }
+        return n === arr[i];
       }
-      return n === arr[i];
-    });
+    );
 
     if (isArith) {
       return NumSequence.arithmetic;
@@ -46,8 +48,7 @@ export enum NumSequence {
     }
   }
   return NumSequence.none;
- }
-
+};
 
 /**
  * @name maxElSum
@@ -77,35 +78,36 @@ export const maxElSum = (arr: number[]): boolean => {
     return true;
   }
   return false;
-}
-
+};
 
 /**
  * @name mostFrequent
  * @description Have the function mostFrequent(arr) take the array of numbers stored in arr and return the number that appears most frequently (the mode). For example: if arr contains [10, 4, 5, 2, 4] the output should be 4. If there is more than one mode return the one that appeared in the array first (ie. [5, 10, 10, 6, 5] should return 5 because it appeared first). If there is no mode return -1. The array will not be empty.
  */
 
- export interface FrequentNum {
-   readonly value: number;
-   readonly index: number;
+export interface FrequentNum {
+  readonly value: number;
+  readonly index: number;
   count: number;
- }
+}
 
- export const mostFrequent = (arr: number[]) => {
+export const mostFrequent = (arr: number[]) => {
   const result: FrequentNum[] = [];
-  for(let i = 0; i < arr.length; i++) {
-    for(let j = 0; j < arr.length; j++) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
       if (i !== i + j) {
         if (arr[i] === arr[i + j]) {
-          const currStoredVal = result.find((el: FrequentNum) => el.value === arr[i]);
+          const currStoredVal = result.find(
+            (el: FrequentNum) => el.value === arr[i]
+          );
           if (currStoredVal) {
-            currStoredVal.count += 1
+            currStoredVal.count += 1;
           } else {
             result.push({
               value: arr[i],
               index: i,
               count: 1
-            })
+            });
           }
         }
       }
@@ -113,8 +115,17 @@ export const maxElSum = (arr: number[]): boolean => {
   }
 
   if (result.length === 0) {
-      return -1;
+    return -1;
   }
   result.sort((el1, el2) => el2.count - el1.count);
   return result[0].value;
- }
+};
+
+/**
+ * @name consecutive
+ * @description Have the function consecutive(arr) take the array of integers stored in arr and return the minimum number of integers needed to make the contents of arr consecutive from the lowest number to the highest number. For example: If arr contains [4, 8, 6] then the output should be 2 because two numbers need to be added to the array (5 and 7) to make it a consecutive array of numbers from 4 to 8. Negative numbers may be entered as parameters and no array will have less than 2 elements.
+ */
+export const consecutive = (arr: number[]): number => {
+  arr.sort((n1: number, n2: number) => n1 - n2);
+  return arr[arr.length - 1] - arr[0] - (arr.length - 1);
+};
