@@ -15,9 +15,9 @@
  */
 
 export enum NumSequence {
-  arithmetic = "Arithmetic",
-  geometric = "Geometric",
-  none = -1
+  arithmetic = 'Arithmetic',
+  geometric = 'Geometric',
+  none = -1,
 }
 
 export const isArithOrGeo = (arr: number[]): NumSequence => {
@@ -106,7 +106,7 @@ export const mostFrequent = (arr: number[]) => {
             result.push({
               value: arr[i],
               index: i,
-              count: 1
+              count: 1,
             });
           }
         }
@@ -128,4 +128,26 @@ export const mostFrequent = (arr: number[]) => {
 export const consecutive = (arr: number[]): number => {
   arr.sort((n1: number, n2: number) => n1 - n2);
   return arr[arr.length - 1] - arr[0] - (arr.length - 1);
+};
+
+/**
+ * @name formattedDiv
+ * @description Have the function formattedDiv(num1,num2) take both
+ * parameters being passed, divide num1 by num2, and return the result
+ * as a string with properly formatted commas and 4 significant digits
+ * after the decimal place. For example: if num1 is 123456789 and num2
+ * is 10000 the output should be "12,345.6789". The output must contain
+ * a number in the one's place even if it is a zero.
+ */
+
+export const formattedDiv = (n1: number, n2: number): any => {
+  const decimal = (n1 / n2).toFixed(4).split('');
+  const whole = decimal.splice(0, decimal.length - 5);
+  const result = [];
+  for (let i = 1; i < whole.length + 1; i++) {
+    i % 3 === 0
+      ? result.unshift(`,${whole[whole.length - i]}`)
+      : result.unshift(`${whole[whole.length - i]}`);
+  }
+  return result.concat(decimal).join('');
 };
