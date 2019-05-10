@@ -1,7 +1,7 @@
 {
   "name": "train-for-the-brain",
   "version": "1.0.0",
-  "description": "Javascript Training",
+  "description": "Javascript training, challenges and algorithms",
   "main": "index.ts",
   "scripts": {
     "test": "jest"
