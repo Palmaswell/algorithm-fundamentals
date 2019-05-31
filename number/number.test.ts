@@ -35,3 +35,13 @@ test('Return the formated division result', () => {
   expect(Number.formattedDiv(2, 3)).toBe('0.6667');
   expect(Number.formattedDiv(10, 10)).toBe('1.0000');
 });
+
+test('Returns the next number greater number', () => {
+  expect(Number.permutationStep(456)).toBe(465);
+  expect(Number.permutationStep(23514)).toBe(23541);
+  expect(Number.permutationStep(897654321)).toBe(912345678);
+  expect(Number.permutationStep(9)).toBe(-1);
+  expect(Number.permutationStep(76666666)).toBe(-1);
+  expect(Number.permutationStep(11121)).toBe(11211);
+  expect(Number.permutationStep(41352)).toBe(41523);
+});

@@ -1,7 +1,7 @@
 {
-  "name": "train-for-the-brain",
+  "name": "ts-algorithms",
   "version": "1.0.0",
-  "description": "Javascript training, challenges and algorithms",
+  "description": "Typescript training, challenges and algorithms",
   "main": "index.ts",
   "scripts": {
     "test": "jest"

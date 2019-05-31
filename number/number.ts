@@ -151,3 +151,14 @@ export const formattedDiv = (n1: number, n2: number): any => {
   }
   return result.concat(decimal).join('');
 };
+/**
+ * @name permutationStep
+ * @description Have the function permutationStep(num) take the num
+ * parameter being passed and return the next number greater than num
+ * using the same digits. For example: if num is 123 return 132,
+ * if it's 12453 return 12534.
+ * If a number has no greater permutations, return -1 (ie. 999).
+ */
+export const permutationStep = (num: number): number => {
+  return num;
+}
