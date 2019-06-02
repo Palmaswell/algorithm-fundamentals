@@ -159,6 +159,23 @@ export const formattedDiv = (n1: number, n2: number): any => {
  * if it's 12453 return 12534.
  * If a number has no greater permutations, return -1 (ie. 999).
  */
+
 export const permutationStep = (num: number): number => {
-  return num;
-}
+  const numbers = Array.from(num.toString().split(''));
+  const aux = (digits: string[], idx: number): string[] => {
+    if (idx >= 1) {
+      if (digits[idx] > digits[idx - 1]) {
+        [digits[idx - 1], digits[idx]] = [digits[idx], digits[idx - 1]];
+        digits.splice(idx, digits.length, ...digits.slice(idx).sort((a, b) => parseInt(a) - parseInt(b)))
+      } else {
+        return aux(digits, idx -= 1);
+      }
+    }
+    return digits;
+  }
+  const result = parseInt(aux(numbers, numbers.length).join(''));
+
+  return result === num
+    ? -1
+    : result;
+};

@@ -39,6 +39,7 @@ test('Return the formated division result', () => {
 test('Returns the next number greater number', () => {
   expect(Number.permutationStep(456)).toBe(465);
   expect(Number.permutationStep(23514)).toBe(23541);
+  expect(Number.permutationStep(12453)).toBe(12534);
   expect(Number.permutationStep(897654321)).toBe(912345678);
   expect(Number.permutationStep(9)).toBe(-1);
   expect(Number.permutationStep(76666666)).toBe(-1);
