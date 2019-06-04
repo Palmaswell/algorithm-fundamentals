@@ -6,19 +6,14 @@
 */
 
 export const isPrime = (n: number): boolean => {
-  if (n < 2 || n > 2 ** 16) {
-    return false;
-  }
-
-  if (n === 2) {
-    return true
-  }
-  for (let counter = 2; counter < n; counter++ ) {
-    if (n % counter === 0) {
-      return false;
+  if (n < 2 ** 16) {
+    for (let counter = n - 1; counter > 2; counter-- ) {
+      if (n % counter === 0) {
+        return false;
+      }
     }
+    return true;
   }
-  return true
 };
 
 /**
@@ -29,12 +24,11 @@ export const isPrime = (n: number): boolean => {
  * 53 as 53 is the 16th prime number.
  */
 export const findPrime = (n: number): number => {
-
   const primes = [];
-  for(let counter = 2; primes.length < n; counter++) {
+  for(let counter = 2; primes.length <= n; counter++) {
     if (isPrime(counter)) {
       primes.push(counter);
     }
   }
-  return primes[n - 1];
+  return primes[n];
 }
