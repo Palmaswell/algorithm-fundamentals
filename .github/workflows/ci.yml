@@ -30,7 +30,7 @@ jobs:
         run: yarn install
 
       - name: Lint
-        run: yarn lint:theme
+        run: yarn lint
 
       - name: Test
-        run: yarn test:theme
+        run: yarn test
