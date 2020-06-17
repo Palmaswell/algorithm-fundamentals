@@ -11,7 +11,7 @@
  */
 
 export const inScramble = (str1: string, str2: string): boolean => {
-  let stringBase = str1.split('');
+  const stringBase = str1.split('');
   for (let i = 0; i < str2.length; i++) {
     if (stringBase.indexOf(str2[i]) === -1) {
       return false;

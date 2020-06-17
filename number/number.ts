@@ -91,7 +91,7 @@ export interface FrequentNum {
   count: number;
 }
 
-export const mostFrequent = (arr: number[]) => {
+export const mostFrequent = (arr: number[]): number => {
   const result: FrequentNum[] = [];
   for (let i = 0; i < arr.length; i++) {
     for (let j = 0; j < arr.length; j++) {
@@ -140,7 +140,7 @@ export const consecutive = (arr: number[]): number => {
  * a number in the one's place even if it is a zero.
  */
 
-export const formattedDiv = (n1: number, n2: number): any => {
+export const formattedDiv = (n1: number, n2: number): string => {
   const decimal = (n1 / n2).toFixed(4).split('');
   const whole = decimal.splice(0, decimal.length - 5);
   const result = [];
