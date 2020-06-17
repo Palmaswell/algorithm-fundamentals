@@ -1,20 +1,26 @@
 {
   "name": "ts-algorithms",
   "version": "1.0.0",
-  "description": "Typescript training, challenges and algorithms",
+  "private": false,
+  "description": "🧠Algorithm training - make JavaScript do what I want, elegantly and efficiently.",
+  "license": "MIT",
+  "author": "<mauricio.palma@woodlikeocean.com>",
   "main": "index.ts",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint src --ext .ts"
   },
-  "author": "<mauricio.palma@woodlikeocean.com>",
-  "license": "MIT",
-  "private": false,
   "dependencies": {
     "ts-node": "^8.1.0",
     "typescript": "^3.4.5"
   },
   "devDependencies": {
     "@types/jest": "^24.0.11",
+    "@typescript-eslint/eslint-plugin": "^3.3.0",
+    "@typescript-eslint/parser": "^3.3.0",
+    "eslint": "^7.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "jest": "^24.7.1",
     "ts-jest": "^24.0.2"
   }

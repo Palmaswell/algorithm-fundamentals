@@ -1,4 +1,4 @@
-# TS Algorithms 
+# Algorithm Fundamentals
 
 A collections of challenges and algorithms solved with TypeScript.
 
