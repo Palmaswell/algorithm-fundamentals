@@ -6,6 +6,6 @@ test('return the factorial of a positive integer n', () => {
   expect(Number.factorial(5)).toBe(120);
 });
 
-test('Find all possible permutations of a number', () => {
+test.skip('Find all possible permutations of a number', () => {
   expect(Number.generate([3, 7, 2])).toEqual(3);
 });

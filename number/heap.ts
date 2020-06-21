@@ -14,7 +14,7 @@ export const factorial = (num: number): number => {
 } ;
 
 
-export const heapsPermutation = <T>(numbers: T[], k: number): T[] => {
+export const heapsPermutation = (numbers: number[], k: number): number[] => {
   if (k === 1) {
     return numbers;
   }
@@ -28,6 +28,6 @@ export const heapsPermutation = <T>(numbers: T[], k: number): T[] => {
   }
 }
 
-export const generate = <T>(arr: T[]): T[] => heapsPermutation(arr, arr.length);
+export const generate = (arr: number[]): number[] => heapsPermutation(arr, arr.length);
 
 

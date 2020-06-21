@@ -4,9 +4,8 @@
  */
 
 export function swap<T>(arr: T[], a: number, b: number): T[] {
-  const result = Array.from(arr);
-  [result[a], result[b]] = [result[b], result[a]];
-  return result;
+  [arr[a], arr[b]] = [arr[b], arr[a]];
+  return arr;
 }
 
 /**
@@ -21,3 +20,19 @@ export function swap<T>(arr: T[], a: number, b: number): T[] {
  * smaller than the sorted element you will swap the elements and continue swapping
  * them until you find the first element or an element that is smaller than the element.
  */
+export function insertionSort<T>(arr: T[]): T[] {
+  const result = Array.from(arr);
+  result.forEach((el, idx) => {
+    if (!!!idx || el > result[idx - 1]) {
+      return;
+    }
+    for (let i = idx - 1; i >= 0; i--) {
+      if (el < result[i]) {
+        swap(result, i, i + 1);
+      } else {
+        break;
+      }
+    }
+  });
+  return result;
+}
